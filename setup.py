@@ -23,7 +23,7 @@ with open('README.rst') as readme:
     long_description = readme.read()
 
 setup(
-    name="PyHive",
+    name="hm-pyhive",
     version=pyhive.__version__,
     description="Python interface to Hive",
     long_description=long_description,
@@ -39,7 +39,6 @@ setup(
         "Topic :: Database :: Front-Ends",
     ],
     install_requires=[
-        'future',
         'python-dateutil',
     ],
     extras_require={
