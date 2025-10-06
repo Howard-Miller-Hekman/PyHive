@@ -9,7 +9,6 @@ from builtins import bytes
 from builtins import int
 from builtins import object
 from builtins import str
-from past.builtins import basestring
 from pyhive import exc
 import abc
 import collections
@@ -248,7 +247,7 @@ class ParamEscaper(object):
             return 'NULL'
         elif isinstance(item, (int, float)):
             return self.escape_number(item)
-        elif isinstance(item, basestring):
+        elif isinstance(item, str):
             return self.escape_string(item)
         elif isinstance(item, Iterable):
             return self.escape_sequence(item)
