@@ -1,6 +1,4 @@
 # coding: utf-8
-from __future__ import absolute_import
-from __future__ import unicode_literals
 
 import abc
 import re
@@ -10,7 +8,6 @@ import functools
 import pytest
 import sqlalchemy
 from builtins import object
-from future.utils import with_metaclass
 from sqlalchemy.exc import NoSuchTableError
 from sqlalchemy.schema import Index
 from sqlalchemy.schema import MetaData
@@ -50,7 +47,7 @@ def reflect_table(engine, connection, table, include_columns, exclude_columns, r
             exclude_columns=exclude_columns, resolve_fks=resolve_fks)
 
 
-class SqlAlchemyTestCase(with_metaclass(abc.ABCMeta, object)):
+class SqlAlchemyTestCase(metaclass=abc.ABCMeta):
     @with_engine_connection
     def test_basic_query(self, engine, connection):
         rows = connection.execute(text('SELECT * FROM one_row')).fetchall()
